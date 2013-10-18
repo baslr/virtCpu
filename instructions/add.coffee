@@ -1,7 +1,7 @@
 
-# command:   numadd
-# arguments: register, register, target 
-# arguments: register, value
+# instruction: add
+# arguments:   register:r, register:r, register:w 
+# arguments:   register:rw, value:r
 
 
 # not implemented
@@ -17,9 +17,9 @@ module.exports = (args, register) ->
     targ = args[2].trim()
     
     register[targ] = register[reg1] + register[reg2]
-
+    
   else if 2 is args.length
     reg = args[0].trim()
     val = args[1].trim()
     
-    register[reg] = Number(register[reg]) + Number val
+    register[reg] += val

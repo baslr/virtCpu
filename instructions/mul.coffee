@@ -1,7 +1,7 @@
 
-# command:   mul
-# arguments: register, register, target 
-# arguments: register, value
+# instruction: mul
+# arguments:   register:r, register:r, register:w
+# arguments:   register:rw, value:r
 
 
 # not implemented

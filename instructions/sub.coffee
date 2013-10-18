@@ -1,7 +1,7 @@
 
-# command:   sub
-# arguments: register, register, target 
-# arguments: register, value
+# instruction: sub
+# arguments:   register:r, register:r, register:w 
+# arguments:   register:rw, value:r
 
 
 # not implemented
@@ -22,4 +22,4 @@ module.exports = (args, register) ->
     reg = args[0].trim()
     val = args[1].trim()
     
-    register[reg] = register[reg] - val
+    register[reg] -= val

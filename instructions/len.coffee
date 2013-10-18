@@ -1,6 +1,6 @@
 
-# command: len
-# arguments: register:in, register:out
+# instruction: len
+# arguments:   register:r, register:w
 
 module.exports = (args, register) ->
   args = args.split ','

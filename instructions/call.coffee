@@ -1,10 +1,10 @@
 
-# command:   call
-# arguments: subr
+# instruction: call
+# argument:    subroutine
+
 
 virtCpu = require '../virtCpu'
 
-
 module.exports = (arg, register) ->
-  console.log "dbg:call:#{arg}" if bDebug
+  dbg "dbg:call:#{arg}"
   virtCpu.callSubr arg

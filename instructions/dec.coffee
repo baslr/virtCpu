@@ -1,7 +1,7 @@
 
-# command:   dec
-# arguments: register
+# instruction: dec
+# argument:    register:rw
 
 
-module.exports = (args, register) ->
-  register[args]--
+module.exports = (arg, register) ->
+  register[arg]--

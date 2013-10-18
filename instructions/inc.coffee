@@ -1,7 +1,7 @@
 
-# command:   inc
-# arguments: register
+# instruction: inc
+# argument:    register:rw
 
 
-module.exports = (args, register) ->
-  register[args]++
+module.exports = (arg, register) ->
+  register[arg]++

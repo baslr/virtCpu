@@ -1,6 +1,7 @@
 
-# command:   cmp
-# arguments: register, register 
+# instruction: cmp
+# arguments:   register:r, register:r
+
 
 module.exports = (args, register) ->
   args = args.split ','

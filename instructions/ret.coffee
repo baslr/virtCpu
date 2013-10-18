@@ -1,6 +1,7 @@
 
-# command:   ret
+# instruction: ret
+
 
 module.exports = (arg, register) ->
   register.ip = register.stack.pop()
-  console.log "dbg:ret:IP:#{register.ip}"
+  dbg "dbg:ret:IP:#{register.ip}"

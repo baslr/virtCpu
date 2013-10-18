@@ -5,7 +5,9 @@ subrNames    = {}
 register     = {}
 instructions = {}
 
-GLOBAL.bDebug = true  
+GLOBAL.bDebug = true
+GLOBAL.lg     = (args...) -> console.log args...
+GLOBAL.dbg    = (args...) -> console.log args... if bDebug
 
 module.exports.getRegister = -> register
 
@@ -16,12 +18,12 @@ module.exports.loadInstructions = ->
       instructions[cmdFile.split('.')[0]] = require "./instructions/#{cmdFile}"
 
 
-module.exports.initRegister = ->
+module.exports.resetRegister = ->
   register = ip:0, stack:[]
 
 
-module.exports.executeCommand = (command, args) ->
-  instructions[command] args, register
+module.exports.executeInstruction = (instr, args) ->
+  instructions[instr] args, register
 
 
 module.exports.jumpTo = (line) ->
@@ -29,6 +31,7 @@ module.exports.jumpTo = (line) ->
     register.ip = subrNames[line]
   else
     console.error "cant jump"
+
       
 module.exports.callSubr = (line) ->
   register.stack.push register.ip
@@ -42,16 +45,14 @@ module.exports.loadProgramm = (file) ->
   for line in progIn
     flg = ''
     if 0 isnt line.search(/^;/) and 0 isnt line.trim().length # its not a comment or empty line
-      if 0 is line.search(/^[a-zA-Z0-9]+:$/)                  # its a sub routine
+      if 0 is line.search(/^[a-zA-Z0-9_]+:$/)                 # its a sub routine
         flg = 'subrN'
         subrNames[line.slice 0, -1] = memory.length           # save subrName without :
       else
         flg = 'instr'
       memory.push {ip: memory.length, code:line, type:flg}
-  console.dir memory
-  console.dir subrNames
-
-#  process.exit()
+#  console.dir memory
+#  console.dir subrNames
 
 
 module.exports.start = ->
@@ -73,7 +74,7 @@ module.exports.start = ->
       break
     
     try
-      @executeCommand command, args
+      @executeInstruction command, args
     catch e
       console.log "ERROR"
       console.log "IP:#{register.ip}"
@@ -89,5 +90,3 @@ module.exports.start = ->
   
   console.log "done. Register:"
   console.dir  register
-  
-  

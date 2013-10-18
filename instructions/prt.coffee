@@ -1,10 +1,10 @@
 
-# command:   prt
-# arguments: prt, register
+# instruction: prt
+# arguments: register:r
+# arguments: value:r
 
 module.exports = (args, register) ->  
   if 0 is args.search(/^'/)
-    console.log "prt: #{args.slice 1,-1}"
+    lg "prt: #{args.slice 1,-1}"
   else
-    console.log "prt: #{args}: #{register[args]}"
-  
+    lg "prt: #{args}: #{register[args]}"

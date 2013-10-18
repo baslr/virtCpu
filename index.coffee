@@ -1,12 +1,11 @@
 
 virtCpu  = require './virtCpu'
 virtCpu.loadInstructions()
-virtCpu.initRegister()
+virtCpu.resetRegister()
 
 register = virtCpu.getRegister()
 
 virtCpu.loadProgramm './prog.mannicode'
-
 
 virtCpu.start()
 

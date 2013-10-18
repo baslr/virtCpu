@@ -1,4 +1,5 @@
 
-# command:   nop
+# instruction:   nop
+
 
 module.exports = ->

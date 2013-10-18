@@ -1,10 +1,11 @@
 
-virtCpu = require '../virtCpu'
+# instruction: jne
+# argument:    subroutine 
 
-# command:   jne
-# arguments: target 
+
+virtCpu = require '../virtCpu'
 
 module.exports = (arg, register) ->
   if register.ZF is 0
-    console.log "jump to #{arg}" if bDebug
+    dbg "dbg:jne:#{arg}"
     virtCpu.jumpTo arg

@@ -1,6 +1,6 @@
 
-# command:   mov
-# arguments: register, value 
+# insruction: mov
+# arguments:  register:w, value:r
 
 
 module.exports = (args, register) ->
