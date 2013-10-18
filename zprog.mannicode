@@ -1,0 +1,61 @@
+; test addition
+;
+mov    ax, 1
+mov    bx, 1
+add ax, bx, ax
+prt 'add 1+1'
+prt    ax
+
+
+; test substraction
+mov ax, 1
+mov bx, 2
+sub ax, bx, ax
+prt 'sub 1-2'
+prt ax
+prt 'sub 2-3'
+sub bx, 3
+prt bx
+
+; test stradd
+mov ax, 1
+mov bx, 'b'
+add ax, bx, ax
+prt 'add 1+"b"'
+prt ax
+
+mov ax, 'La'
+mov bx, 'TeX'
+add ax, bx, ax
+prt 'add "La"+"TeX"'
+prt ax
+
+; test inc
+mov ax, -1
+inc ax
+prt 'inc -1'
+prt ax
+
+; test dec
+mov ax, 0
+dec ax
+prt 'dec 0'
+prt ax
+
+; test mul
+mov ax, 2
+mov bx, 3
+mul ax, bx, ax
+prt 'mul 2*3'
+prt ax
+add ip, 4
+; test mul
+set ax, 3
+mul ax, 3
+prt 'mul 3 *= 3'
+prt ax
+
+mov ax, 10
+mul ax, 10
+prt 'mul 10 *= 10'
+prt ax

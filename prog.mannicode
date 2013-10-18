@@ -1,0 +1,54 @@
+
+mov ax, 3
+call test1
+prt 'test1 called'
+
+mov ax, 5
+call test2
+prt 'test2 called'
+
+
+test1:
+prt 'in test1'
+prt ax
+
+call test2
+ret
+
+test2:
+prt 'in test2'
+prt ax
+ret
+
+
+mov ax, 3
+mov bx, 4
+cmp ax, bx
+prt ZF
+mov ax, 3
+cmp ax, bx
+prt ZF
+
+
+mov ax, 'foof'
+len ax, bx
+mov cx, 0
+prt bx
+call loop
+
+
+
+loop:
+prt cx
+cmp cx, bx
+prt ZF
+inc cx
+je miau
+jne loop
+
+
+
+miau:
+prt 'in miau'
+prt bx
+prt cx
