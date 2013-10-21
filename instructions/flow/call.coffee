@@ -3,7 +3,7 @@
 # argument:    subroutine
 
 
-virtCpu = require '../virtCpu'
+virtCpu = require '../../virtCpu'
 
 module.exports = (arg, register) ->
   dbg "dbg:call:#{arg}"

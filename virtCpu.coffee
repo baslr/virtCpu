@@ -13,9 +13,17 @@ module.exports.getRegister = -> register
 
 
 module.exports.loadInstructions = ->
-  for cmdFile in fs.readdirSync './instructions'
-    if -1 < cmdFile.search /.js$/
-      instructions[cmdFile.split('.')[0]] = require "./instructions/#{cmdFile}"
+    dirs = ['./instructions']
+    while dirs.length
+      dir = dirs.shift()
+      for cmdFile in fs.readdirSync dir
+        stat = fs.statSync "#{dir}/#{cmdFile}"
+        if stat.isDirectory()
+          dirs.push "#{dir}/#{cmdFile}"
+        else if stat.isFile() and -1 < cmdFile.search /.js$/
+          instructions[cmdFile.split('.')[0]] = require "#{dir}/#{cmdFile}"
+    console.dir instructions
+#    process.exit()
 
 
 module.exports.resetRegister = ->
