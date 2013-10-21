@@ -21,7 +21,6 @@ sub  register:rw, value:r
 
 #### flow
 ```asm
-call subroutine
 je   subroutine
 jne  subroutine
 ```
@@ -31,7 +30,7 @@ jne  subroutine
 mov  register:w, value:r
 pop  register:w
 push register:r
-
+```
 
 #### other
 ```asm
@@ -40,7 +39,7 @@ len  register:r, register:w
 
 prt  value:r
 prt  register:r
-call
+call subroutine
 ret
 nop
 ```
