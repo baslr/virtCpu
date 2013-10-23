@@ -22,4 +22,6 @@ module.exports = (args, register) ->
     reg = args[0].trim()
     val = args[1].trim()
     
+    val = Number val if 0 is val.search(/(\-|\+)?(\d+\.\d+|\d+\.|\.\d+|\d+)/)
+    
     register[reg] += val
