@@ -28,6 +28,7 @@ jne  subroutine
 #### data
 ```asm
 mov  register:w, value:r
+mov  register:w, register:r
 pop  register:w
 push register:r
 ```
@@ -40,6 +41,7 @@ len  register:r, register:w
 prt  value:r
 prt  register:r
 call subroutine
+jmp  subroutine
 ret
 nop
 ```
