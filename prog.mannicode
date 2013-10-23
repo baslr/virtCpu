@@ -1,54 +1,84 @@
 
-mov ax, 3
-call test1
-prt 'test1 called'
+mov ax, 4
+mov bx, 2
+sub ax, bx, ax
+prt ax
+
+mov ax, 42
+push ax
+
+call pop_test
+
+prt 'foo'
 
 mov ax, 5
-call test2
-prt 'test2 called'
-
-
-test1:
-prt 'in test1'
+mov bx, 2
+div ax, bx, ax
+prt 'should be 2.5'
 prt ax
 
-call test2
-ret
-
-test2:
-prt 'in test2'
-prt ax
+pop_test:
+pop bx
+pop cx
+push bx
+prt 'should print 42'
+prt cx
 ret
 
 
-mov ax, 3
-mov bx, 4
-cmp ax, bx
-prt ZF
-mov ax, 3
-cmp ax, bx
-prt ZF
-
-
-mov ax, 'foof'
-len ax, bx
-mov cx, 0
-prt bx
-call loop
 
 
 
-loop:
-prt cx
-cmp cx, bx
-prt ZF
-inc cx
-je miau
-jne loop
-
-
-
-miau:
-prt 'in miau'
-prt bx
-prt cx
+;mov ax, 3
+;call test1
+;prt 'test1 called'
+;
+;mov ax, 5
+;call test2
+;prt 'test2 called'
+;
+;
+;test1:
+;prt 'in test1'
+;prt ax
+;
+;call test2
+;ret
+;
+;test2:
+;prt 'in test2'
+;prt ax
+;ret
+;
+;
+;mov ax, 3
+;mov bx, 4
+;cmp ax, bx
+;prt ZF
+;mov ax, 3
+;cmp ax, bx
+;prt ZF
+;
+;
+;mov ax, 'foof'
+;len ax, bx
+;mov cx, 0
+;prt bx
+;call loop
+;
+;
+;
+;loop:
+;prt cx
+;cmp cx, bx
+;prt ZF
+;inc cx
+;je miau
+;jne loop
+;
+;
+;
+;miau:
+;prt 'in miau'
+;prt bx
+;prt cx

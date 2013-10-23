@@ -1,0 +1,46 @@
+
+
+
+
+mov lp, 0
+mov ax, 4
+
+loop1:
+cmp lp, ax
+je done1
+prt 'looop'
+call inc_loop
+jmp loop1
+
+inc_loop:
+prt ax
+dec ax
+ret
+
+
+
+done1:
+prt 'loop done'
+
+mov ax, 0.1
+mov bx, 0.2
+mov cx, 0.3
+add ax, bx, ax
+
+cmp ax, cx
+prt ZF
+
+
+
+mov ax, 'fobartz'
+len ax, bx
+
+prt bx
+mov cx, 0
+loop2:
+prt cx
+inc cx
+cmp cx, bx
+jne loop2
+
+prt 'done'

@@ -7,5 +7,5 @@
 
 
 module.exports = (arg, register) ->
-  register.stack.push register[arg]
+  register.stack[register.sp--] = register[arg]
   dbg "push:#{arg}"

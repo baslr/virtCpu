@@ -3,5 +3,7 @@
 
 
 module.exports = (arg, register) ->
-  register.ip = register.stack.pop()
+  console.dir register.sp
+  register.ip = register.stack[++register.sp] # pop()
+  console.dir "ip:#{register.ip}"
   dbg "dbg:ret:IP:#{register.ip}"

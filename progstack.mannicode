@@ -1,0 +1,41 @@
+
+mov ax, 'a'
+mov bx, 'b'
+push ax
+push bx
+call stack_test
+jmp done
+
+stack_test:
+  prtstack
+  prt 'stack pointer:'
+  prt sp
+  mov cx, sp
+  prt 'saved sp is:'
+  prt cx
+  inc sp
+  prt 'inced, sp is:'
+  prt sp
+
+  pop xx
+  prt 'poped to xx, sp is:'
+  prt sp
+  prt xx
+
+
+  pop yx
+  prt 'poped to yx, sp is:'
+  prt sp
+  prt yx
+
+
+  
+  mov sp, cx
+  prt 'restored sp from cx, sp is:'
+  prt sp
+  
+ret
+  
+
+done:
+prt 'done.'

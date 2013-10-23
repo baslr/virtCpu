@@ -4,5 +4,5 @@
 
 
 module.exports = (arg, register) ->
-  register[arg] = register.stack.pop()
+  register[arg] = register.stack[++register.sp]
   dbg "pop:#{arg}"

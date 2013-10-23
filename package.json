@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "optimist": "~0.6.0"
   }
 }
